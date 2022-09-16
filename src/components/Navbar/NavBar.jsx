@@ -1,3 +1,4 @@
+import CartWidget from "../cartWidget/cartWidget";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -24,7 +25,8 @@ const NavBar = () => {
                             <a className="nav-link" href="src/components/Navbar/NavBar#">Contacto</a>
                         </li>
                     </ul>
-                    <button className="btn btn-primary" type="button">Iniciar sesión</button>
+                    <button className="btn btn-primary me-5" type="button">Iniciar sesión</button>
+                    <CartWidget />
                 </div>
             </div>
         </nav>

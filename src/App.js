@@ -1,11 +1,12 @@
 import './App.css';
+import ItemListContainer from './components/itemListContainer/itemListContainer';
 import NavBar from "./components/Navbar/NavBar";
 
 function App() {
   return (
     <section>
       <NavBar />
-      <h1 className="text-center fs-1 my-5">Bienvenid@!</h1>
+      <ItemListContainer greeting="Bienvenid@ a la tienda!"/>
     </section>
   );
 }
