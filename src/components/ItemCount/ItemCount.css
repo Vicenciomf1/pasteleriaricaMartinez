@@ -1,0 +1,9 @@
+.centrarTodo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.centrarTodo > * { /* Así centras a los hijos */
+  margin: 0 auto;
+}
