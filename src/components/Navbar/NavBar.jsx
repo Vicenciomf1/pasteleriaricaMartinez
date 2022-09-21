@@ -1,4 +1,4 @@
-import CartWidget from "../cartWidget/cartWidget";
+import CartWidget from "../Icons/CartWidget";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -6,7 +6,7 @@ const NavBar = () => {
         <nav className="navbar navbar-light navbar-expand-md py-1">
             <div className="container">
                 <a className="navbar-brand d-flex align-items-center" href="src/components/Navbar/NavBar#">
-                    <img src="/assets/Pasteleria.svg" alt="logo" className="logo"/>
+                    <img src="/assets/img/Pasteleria.svg" alt="logo" className="logo"/>
                     <span>Pastelería Rica</span>
                 </a>
                 <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-3">
