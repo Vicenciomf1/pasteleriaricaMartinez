@@ -2,7 +2,7 @@ import React from 'react'
 import Card from "./Card";
 
 const ItemListContainer = ({ greeting: saludo }) => {
-    let products = [
+    const products = [
         {
             title: "Küchen del sur",
             img: "/assets/img/kuchen.webp",
