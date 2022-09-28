@@ -3,7 +3,7 @@ import Minus from "../Icons/Minus";
 import Plus from "../Icons/Plus";
 import "./ItemCount.css";
 
-function ItemCount({initial, stock, onAdd}) {
+function ItemCount({initial, stock, onAdd, buttonText}) {
     const [contador, setContador] = React.useState(initial);
 
     const agregarUno = () => {
@@ -23,7 +23,7 @@ function ItemCount({initial, stock, onAdd}) {
             <Minus accion={quitarUno}/>
             <span>{contador}</span>
             <Plus accion={agregarUno}/>
-            <a href="#" onClick={comprar} className="btn btn-primary">Agregar al carrito</a>
+            <a href="#" onClick={comprar} className="btn btn-primary">{buttonText}</a>
         </div>
     );
 }

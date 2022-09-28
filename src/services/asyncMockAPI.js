@@ -22,7 +22,16 @@ const products = [
 export const traerProductos = () => {
     return new Promise( (cumplir, rechazar) => {
         setTimeout( () => {
-            cumplir(products);
+            products ? cumplir(products) : rechazar(new Error("Ha ocurrido un error al intentar traer los productos de nuestro inventario"));
+        }, 2000);
+    });
+};
+
+export const traerUnProducto = (idRequerido) => { // Este es el GetItem() que solicitaron en la tarea, pero no quería dejarlo todo en spanglish jaja
+    return new Promise( (cumplir, rechazar) => {
+        setTimeout(() => {
+            let unProducto = products.find( (elemento)=>elemento.id===idRequerido); //Evalúa si algún elemento del array de productos cumple con que su id sea el requerido.
+            unProducto ? cumplir(unProducto) : rechazar(new Error("Este item no fue encontrado en nuestro inventario"));
         }, 2000);
     });
 };
