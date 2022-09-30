@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {traerPorCategoria, traerProductos} from '../../services/asyncMockAPI';
+import {traerPorCategoria, traerProductos} from '../../services/AsyncMockAPI';
 import ItemList from './ItemList';
 import {useParams} from "react-router-dom";
 

@@ -1,16 +1,9 @@
 import CartWidget from "../Icons/CartWidget";
 import "./NavBar.css";
 import {Link} from "react-router-dom";
-import {useState, useEffect} from "react";
-import {traerCategorias} from "../../services/asyncMockAPI";
 
 const NavBar = () => {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        traerCategorias().then((categoriasDeAPI) => setCategories([...new Set(categoriasDeAPI)]));
-    }, []);
-    console.log(categories);
+    const categorias = ["Tortas", "Dulces"];
     return (
         <nav className="navbar navbar-light navbar-expand-md py-1">
             <div className="container">
@@ -36,25 +29,19 @@ const NavBar = () => {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                Categorías
+                                Productos
                             </Link>
-                            {
-                                categories.map((categoria, key) => {
-                                    return (
-                                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                                            key={key}>
-                                            <li>
-                                                <Link
-                                                    className="dropdown-item"
-                                                    to={`/category/${categoria.name}`}
-                                                >
-                                                    {categoria.name}
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    );
-                                })
-                            }
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                {
+                                    categorias.map((categoria) => (
+                                        <li key={categoria}>
+                                            <Link className="dropdown-item" to={`/category/${categoria}`}>
+                                                {categoria}
+                                            </Link>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
                         </li>
                         <li className="nav-item mx-auto">
                             <Link className="nav-link" to="/contacto">Contacto</Link>

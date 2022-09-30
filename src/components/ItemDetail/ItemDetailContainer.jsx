@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {traerUnProducto} from '../../services/asyncMockAPI';
+import {traerUnProducto} from '../../services/AsyncMockAPI';
 import ItemDetail from './ItemDetail';
 import {useParams} from "react-router-dom";
 
