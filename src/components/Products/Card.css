@@ -1,0 +1,10 @@
+.tarjeta {
+    width: clamp(10rem, 18rem, 20rem);
+    margin: 0.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .tarjeta {
+        width: 90%;
+    }
+}
