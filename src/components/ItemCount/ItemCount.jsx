@@ -15,7 +15,6 @@ function ItemCount({initial, stock, onAdd, buttonText}) {
 
     const comprar = () => {
         (contador <= stock) ? onAdd(contador) : alert("Acabas de hackear mi app, no deberías de poder comprar más de lo que hay en stock, por favor avísame si es que llegaste acá"); // Si compras una cantidad menor o igual al stock, entonces puedes comprar, si no, te pregunto qué es lo que hiciste jaja
-        // Cuando compras, se ejecuta la función onAdd, que es la que se define en el componente padre, realmente no le encontré sentido, y me costó entender qué pedían
     };
 
     return (
