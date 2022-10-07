@@ -6,17 +6,11 @@ function ItemList({productosDeContainer: productos}) {
         <div className="container">
             <div className="row">
                 {
-                    productos.map((producto) => {
+                    productos.map((product) => {
                         return (
                             <Card
-                                key={producto.id}
-                                id={producto.id}
-                                title={producto.title}
-                                img={producto.img}
-                                detail={producto.detail}
-                                price={producto.price}
-                                stock={producto.stock}
-                                category={producto.category}
+                                key={product.id}
+                                product={product}
                             />
                         );
                     })

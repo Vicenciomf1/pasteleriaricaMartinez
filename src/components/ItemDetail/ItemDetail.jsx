@@ -1,19 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
+import {cartContext} from "../../context/CartContext";
 
 function Card({productoUnico}) {
+    //Datos externos como props o contexto
     let {title, img, detail, price, stock, category} = productoUnico;
-    const [cantidad, setCantidad] = React.useState(0);
+    const {addItem} = useContext(cartContext);
+
+    //Estados
     const [compraLista, setCompraLista] = React.useState(false);
 
+    //Métodos
     const agregarAlCarro = (cantidad) => {
-        alert(`Has comprado ${cantidad} ${title}/es/as`);
-        setCantidad(cantidad);
+        addItem(productoUnico, cantidad);
         setCompraLista(true);
-        console.log(`Acabo de guardar la siguiente cantidad desde el ItemCount hijo: ${cantidad}`);
     }
 
+    //El nodo JSX a renderizar
     return (
         <div className="col-12">
             <div className="card mx-auto" style={{width: "40rem"}}>
