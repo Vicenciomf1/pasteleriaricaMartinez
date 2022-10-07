@@ -9,13 +9,7 @@ export const CartContextProvider = ({ children }) => {
         let newCart = [...cart];
         let idEnArrayCarro = newCart.findIndex( (producto) => producto.id===item.id );
 
-
-        if (idEnArrayCarro === -1){
-            item["quantity"] = quantity;
-            newCart.push(item);
-        } else {
-            newCart[idEnArrayCarro].quantity += quantity;
-        }
+        (idEnArrayCarro === -1) ? newCart.push({...item, quantity: quantity}) : newCart[idEnArrayCarro].quantity += quantity;
 
         setCart(newCart);
         localStorage.setItem('carrito', JSON.stringify(newCart));
@@ -25,16 +19,17 @@ export const CartContextProvider = ({ children }) => {
         return cart.reduce( (acumulador, actual) => acumulador+actual.quantity, 0);
     }
 
-    function removeItem(itemId){
+    function removeItem(idItem){
         let newCart = [...cart];
-        let idEnArrayCarro = newCart.findIndex( (producto) => producto.id===itemId );
+        let idEnArrayCarro = newCart.findIndex( (producto) => producto.id===idItem );
 
         if (idEnArrayCarro !== -1){
             newCart.splice(idEnArrayCarro, 1);
+            setCart(newCart);
+            localStorage.setItem('carrito', JSON.stringify(newCart));
+        } else {
+            console.log("No se encontró el producto en el carrito, por lo que no se puede eliminar, ¿cómo llegaste a esta parte? jaja");
         }
-
-        setCart(newCart);
-        localStorage.setItem('carrito', JSON.stringify(newCart));
     }
 
     function clear(){
