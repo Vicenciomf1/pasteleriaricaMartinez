@@ -50,18 +50,18 @@ export const CartContextProvider = ({ children }) => {
         localStorage.setItem('carrito', JSON.stringify([]));
     }
 
+    //Consultar la cantidad de un producto en específico, no lo necesito, ya que mi componente de producto en carro ya lo hace
+    function getItemQty(idItem){
+        let idEnArrayCarro = cart.findIndex( (producto) => producto.id===idItem );
+        return (idEnArrayCarro === -1) ? 0 : cart[idEnArrayCarro].quantity;
+    }
+
     function isInCart (idItem) {
         return cart.some((producto) => producto.id === idItem);
     }
 
     /*
     Métodos que no me sirvieron, que dejo acá por si los llego a necesitar, borrar el comentario al hacer la entrega real, recuerda que es mala práctica poner este tipo de comentarios
-
-    //Consultar la cantidad de un producto en específico, no lo necesito, ya que mi componente de producto en carro ya lo hace
-    function getItemQty(idItem){
-        let idEnArrayCarro = cart.findIndex( (producto) => producto.id===idItem );
-        return (idEnArrayCarro === -1) ? 0 : cart[idEnArrayCarro].quantity;
-    }
 
     //Consultar el precio total de un producto en específico, es decir, sacando el subtotal del precio y cuántos compraste; no lo necesito, ya que hago el cálculo en mi componente de producto en carro
     function getItemPrice(idItem){
@@ -79,7 +79,8 @@ export const CartContextProvider = ({ children }) => {
                 removeItem,
                 clear,
                 isInCart,
-                getTotalPrice
+                getTotalPrice,
+                getItemQty
            }
        }>
            {children}

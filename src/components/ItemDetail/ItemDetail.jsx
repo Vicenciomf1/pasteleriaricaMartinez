@@ -10,7 +10,7 @@ import {useCartContext} from "../../context/CartContext";
 
 function Card({productoUnico}) {
     //Datos externos como props o contexto
-    let {title, img, detail, price, stock, category} = productoUnico;
+    let {id,title, img, detail, price, stock, category} = productoUnico;
     const {addItem} = useCartContext();
 
     //Estados
@@ -21,6 +21,8 @@ function Card({productoUnico}) {
         addItem(productoUnico, cantidad);
         setCompraLista(true);
     }
+
+    const disableDetail = () => setCompraLista(true);
 
     //El nodo JSX a renderizar
     return (
@@ -38,7 +40,7 @@ function Card({productoUnico}) {
                     {
                         compraLista
                             ? <Link to="/cart"><button className="btn btn-primary">Terminar compra</button></Link>
-                            : <ItemCount initial={1} stock={stock} onAdd={agregarAlCarro} buttonText="Comprar ahora"/>
+                            : <ItemCount initial={1} stock={stock} idComprado={id} onAdd={agregarAlCarro} buttonText="Comprar ahora" handleDisabledChild={disableDetail} />
                     }
 
                 </div>

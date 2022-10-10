@@ -1,13 +1,17 @@
 import React from 'react';
 import CartProduct from "./CartProduct";
 import {useCartContext} from "../../context/CartContext";
+import {Link} from "react-router-dom";
 
 const Cart = () => {
     const vacio = false;
     const { cart, getTotalPrice, removeItem } = useCartContext();
 
     const nodoCarroVacio = (
-        <p className="text-center"> Acá va el carrito, por ahora cumplo con decir que es un componente vacío</p>
+        <div className="d-flex flex-column align-items-center">
+            <p className="text-center">Tu carrito está vacío, te invitamos a comprar algo :)</p>
+            <Link to="/"><button className="btn btn-primary">Volver al inicio</button></Link>
+        </div>
     );
 
     const nodoCarroConProductos = (
