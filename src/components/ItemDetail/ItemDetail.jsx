@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
-import {cartContext} from "../../context/CartContext";
+import {useCartContext} from "../../context/CartContext";
+//Antes del custom Hook era un:
+//import React, { useContext } from 'react'
+//import {cartContext, useCartContext} from "../../context/CartContext";
+//Y dentro de la función Card un const {addItem} = useContext(cartContext);
+//Es decir, reducimos la cantidad de importaciones.
 
 function Card({productoUnico}) {
     //Datos externos como props o contexto
     let {title, img, detail, price, stock, category} = productoUnico;
-    const {addItem} = useContext(cartContext);
+    const {addItem} = useCartContext();
 
     //Estados
     const [compraLista, setCompraLista] = React.useState(false);

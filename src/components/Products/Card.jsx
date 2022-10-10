@@ -1,12 +1,12 @@
-import React, {useContext} from 'react'
+import React from 'react';
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
 import "./Card.css";
-import {cartContext} from "../../context/CartContext";
+import {useCartContext} from "../../context/CartContext";
 
 function Card({product}) {
     const {id, title, img, detail, price, stock, category} = product;
-    const {addItem} = useContext(cartContext);
+    const {addItem} = useCartContext()
 
     return (
         <div className="col-xl-3 col-lg-4 col-12">

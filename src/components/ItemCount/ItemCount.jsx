@@ -1,13 +1,13 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import Minus from "../Icons/Minus";
 import Plus from "../Icons/Plus";
 import "./ItemCount.css";
-import {cartContext} from "../../context/CartContext";
+import {useCartContext} from "../../context/CartContext";
 
 
 function ItemCount({initial, stock, onAdd, buttonText, idComprado}) {
     const [contador, setContador] = React.useState(initial);
-    const {cart} = useContext(cartContext);
+    const {cart} = useCartContext();
 
     let yaComprados; //Necesario para consistencia y no pasar el máximo. Cada vez qu cambien el estado del contador esto se calculará de nuevo.
     try {
