@@ -4,7 +4,7 @@ import ItemDetail from './ItemDetail';
 import {useParams} from "react-router-dom";
 
 const ItemListContainer = ({greeting: saludo}) => {
-    const [unProducto, setUnProducto] = useState([]);
+    const [unProducto, setUnProducto] = useState({});
     const [loading, setLoading] = useState(true);
     const idParseado = parseInt(useParams().itemId); // Esto es para que el ID sea un número y no una string (lo hago desde el principio para evitar errores si lo reutilizo), obtengo el diccionario de query params, luego saco el item id, y finalmente lo parseo
 

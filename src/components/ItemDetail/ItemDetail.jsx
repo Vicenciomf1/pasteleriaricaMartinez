@@ -1,12 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ItemCount from "../ItemCount/ItemCount";
 import {Link} from "react-router-dom";
-import {cartContext} from "../../context/CartContext";
+import {useCartContext} from "../../context/CartContext";
+//Antes del custom Hook era un:
+//import React, { useContext } from 'react'
+//import {cartContext, useCartContext} from "../../context/CartContext";
+//Y dentro de la función Card un const {addItem} = useContext(cartContext);
+//Es decir, reducimos la cantidad de importaciones.
 
 function Card({productoUnico}) {
     //Datos externos como props o contexto
-    let {title, img, detail, price, stock, category} = productoUnico;
-    const {addItem} = useContext(cartContext);
+    let {id,title, img, detail, price, stock, category} = productoUnico;
+    const {addItem} = useCartContext();
 
     //Estados
     const [compraLista, setCompraLista] = React.useState(false);
@@ -16,6 +21,8 @@ function Card({productoUnico}) {
         addItem(productoUnico, cantidad);
         setCompraLista(true);
     }
+
+    const disableDetail = () => setCompraLista(true);
 
     //El nodo JSX a renderizar
     return (
@@ -33,7 +40,7 @@ function Card({productoUnico}) {
                     {
                         compraLista
                             ? <Link to="/cart"><button className="btn btn-primary">Terminar compra</button></Link>
-                            : <ItemCount initial={1} stock={stock} onAdd={agregarAlCarro} buttonText="Comprar ahora"/>
+                            : <ItemCount initial={1} stock={stock} idComprado={id} onAdd={agregarAlCarro} buttonText="Comprar ahora" handleDisabledChild={disableDetail} />
                     }
 
                 </div>

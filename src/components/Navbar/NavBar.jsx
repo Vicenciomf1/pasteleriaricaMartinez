@@ -47,8 +47,10 @@ const NavBar = () => {
                             <Link className="nav-link" to="/contacto">Contacto</Link>
                         </li>
                     </ul>
-                    <button className="btn btn-primary me-5" type="button">Iniciar sesión</button>
-                    <CartWidget/>
+                    <div className="d-flex justify-content-sm-center justify-content-lg-around align-items-center">
+                        <button className="btn btn-primary me-5" type="button">Iniciar sesión</button>
+                        <CartWidget/>
+                    </div>
                 </div>
             </div>
         </nav>

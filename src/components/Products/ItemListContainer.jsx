@@ -9,6 +9,8 @@ const ItemListContainer = ({greeting: saludo}) => {
     const {categoryName} = useParams();
 
     useEffect(() => {
+        setProductos([]);
+        setLoading(true);
         if (categoryName) {
             traerPorCategoria(categoryName).then((productosDeAPI) => {
                 setProductos(productosDeAPI);
