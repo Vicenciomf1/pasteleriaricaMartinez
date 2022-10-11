@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {traerPorCategoria, traerProductos} from '../../services/AsyncMockAPI';
+//import {traerPorCategoria, traerProductos} from '../../services/AsyncMockAPI';
+import {traerProductos, traerPorCategoria} from "../../services/Firestore";
 import ItemList from './ItemList';
 import {useParams} from "react-router-dom";
 

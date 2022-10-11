@@ -5,8 +5,17 @@ import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import {CartContextProvider} from "./context/CartContext";
+//import {traerProductos, traerPorCategoria, traerPorMayorQuePrecio, traerPorMenorQuePrecio, traerIgualQuePrecio, traerProducto} from "./services/Firestore";
 
 function App() {
+    //console.log(traerProducto("RFFZMXhPu7X3373dGczL").then(resp=>console.log(resp)));
+    //console.log(traerProductos().then(resp=>console.log(resp)));
+    //console.log(traerProductos().then(resp=>console.log(resp)));
+    //console.log(traerPorCategoria("Dulces").then(resp=>console.log(resp)));
+    //console.log(traerPorMayorQuePrecio(6000).then(resp=>console.log(resp)));
+    //console.log(traerPorMenorQuePrecio(6000).then(resp=>console.log(resp)));
+    //console.log(traerIgualQuePrecio(5500).then(resp=>console.log(resp)));
+
     return (
         <CartContextProvider>
             <BrowserRouter>
