@@ -26,7 +26,7 @@ function ItemCount({initial, stock, onAdd, buttonText, idComprado, handleDisable
     };
 
     const quitarUno = () => {
-        (contador > 0) && setContador(contador - 1); // Si quitas una cantidad mayor a cero, entonces puedes restar uno menos
+        (contador > 1) && setContador(contador - 1); // Si quitas una cantidad mayor a cero, entonces puedes restar uno menos
     };
 
     const comprar = () => {
