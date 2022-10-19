@@ -2,6 +2,7 @@ import React from 'react';
 import CartProduct from "./CartProduct";
 import {useCartContext} from "../../context/CartContext";
 import {Link} from "react-router-dom";
+import CheckoutForm from "../CheckoutComponents/CheckoutForm/CheckoutForm";
 
 const Cart = () => {
     const vacio = false;
@@ -50,6 +51,7 @@ const Cart = () => {
                 <div className="col">
                     <h1 className="text-center fs-1 my-5">Carrito de compras</h1>
                     {vacio ? nodoCarroVacio : nodoCarroConProductos}
+                    <CheckoutForm />
                 </div>
             </div>
         </div>

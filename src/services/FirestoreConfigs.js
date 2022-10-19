@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, query, where, getDoc, doc } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where, getDoc, doc, addDoc } from "firebase/firestore";
 
 // Config de la web app de Firebase
 const firebaseConfig = {
@@ -94,6 +94,38 @@ export const generarTraerUnDocumento = (coleccion) => {
       const documentoRef = doc(database, coleccion, id);  // Referencia del documento
       const documento = await getDoc(documentoRef); // En realidad es la captura del documento (no el documento en sí), pero como es un solo documento, no es necesario mapearlo y me facilita ponerle ese nombre
       return { ...documento.data(), id: documento.id }
+    } catch (error) {
+      console.log("Nos hemos encontrado con el siguiente error:", error);
+    }
+  }
+}
+
+//Crear:
+export const generarCrearDocumento = (coleccion) => {
+  return async function(datos){
+    try {
+      const coleccionRef = collection(database, coleccion);
+      const documentoRef = await addDoc(coleccionRef, datos);
+      return documentoRef.id;
+    } catch (error) {
+      console.log("Nos hemos encontrado con el siguiente error:", error);
+    }
+  }
+}
+
+export const generarExportardatosColeccion = (coleccion) => {
+  return async function(datos){
+    try {
+      const coleccionRef = collection(database, coleccion);
+      let idExportados = [];
+
+      for (let doc of datos){
+        delete doc["id"];
+        await addDoc(coleccionRef, doc);
+        idExportados.push(doc.id);
+      }
+
+      console.log(`Exportación exitosa de ${idExportados.length} documentos, con los siguientes IDs: ${idExportados.join(", ")}`);
     } catch (error) {
       console.log("Nos hemos encontrado con el siguiente error:", error);
     }
