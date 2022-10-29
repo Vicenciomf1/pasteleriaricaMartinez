@@ -40,7 +40,7 @@ function Card({productoUnico}) {
                     {
                         compraLista
                             ? <Link to="/cart"><button className="btn btn-primary">Terminar compra</button></Link>
-                            : <ItemCount initial={1} stock={stock} idComprado={id} onAdd={agregarAlCarro} buttonText="Comprar ahora" handleDisabledChild={disableDetail} />
+                            : <ItemCount initial={1} stock={stock} idComprado={id} onAdd={agregarAlCarro} buttonText="Comprar ahora" onDisabledCounter={disableDetail} />
                     }
 
                 </div>
