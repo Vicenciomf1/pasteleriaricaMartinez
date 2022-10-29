@@ -7,22 +7,34 @@ import {useParams} from "react-router-dom";
 const ItemListContainer = ({greeting: saludo}) => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
+    // Y el estado de error? ¿No haría muy compleja ya a la fetch?
     const {categoryName} = useParams();
 
-    useEffect(() => {
+    useEffect(() => {  // Sistema externo
+        let ignorar = false;
+
         setProductos([]);
         setLoading(true);
+
         if (categoryName) {
             traerProductoPorCategoria(categoryName).then((productosDeAPI) => {
-                setProductos(productosDeAPI);
-                setLoading(false);
+                if (!ignorar) {  // Evita bugs en race conditions
+                    setProductos(productosDeAPI);
+                    setLoading(false);
+                }
             });
         } else {
             traerProductos().then((productosDeAPI) => {
-                setProductos(productosDeAPI);
-                setLoading(false);
+                if (!ignorar) {
+                    setProductos(productosDeAPI);
+                    setLoading(false);
+                }
             });
         }
+
+        return () => {
+            ignorar = true;
+        };
     }, [categoryName]);
 
     return (
