@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-//import {traerPorCategoria, traerProductos} from '../../services/AsyncMockAPI';
 import {traerProductos, traerProductoPorCategoria} from "../../services/Firestore";
 import ItemList from './ItemList';
 import {useParams} from "react-router-dom";
@@ -7,10 +6,9 @@ import {useParams} from "react-router-dom";
 const ItemListContainer = ({greeting: saludo}) => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
-    // Y el estado de error? ¿No haría muy compleja ya a la fetch?
     const {categoryName} = useParams();
 
-    useEffect(() => {  // Sistema externo
+    useEffect(() => {
         let ignorar = false;
 
         setProductos([]);

@@ -1,14 +1,14 @@
 import React from 'react'
-import Card from './Card/Card';
+import Item from './Item/Item';
 
 function ItemList({productosDeContainer: productos}) {
     return (
         <div className="container">
-            <div className="row">
+            <div className="row g-5">
                 {
                     productos.map((product) => {
                         return (
-                            <Card
+                            <Item
                                 key={product.id}
                                 product={product}
                             />

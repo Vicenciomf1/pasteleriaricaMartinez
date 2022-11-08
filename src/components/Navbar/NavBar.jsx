@@ -1,9 +1,9 @@
 import CartWidget from "../Icons/CartWidget";
 import "./NavBar.css";
-import Logo from "./Logo";
-import CollapseIcon from "./CollapseIcon";
-import NavBarNav from "./NavBarNav/NavBarNav";
-
+import Logo from "./NavBarIcons/Logo";
+import CollapseIcon from "./NavBarIcons/CollapseIcon";
+import {Link} from "react-router-dom";
+import NavBarNavCategories from "./NavBarNavCategories";
 
 
 export default function NavBar() {
@@ -15,20 +15,22 @@ export default function NavBar() {
 
                 <div className="collapse navbar-collapse" id="navcol-3">
                     <NavBarNav />
-                    <NavBarRightItems />
+                    <CartWidget/>
                 </div>
             </div>
         </nav>
     );
 }
 
-function NavBarRightItems(){  // Puedo hacer un NavBarNav con composición e ir variando con props, además de pasar los demás como children
-  return(
-    <div className="d-flex justify-content-sm-center justify-content-lg-around align-items-center">
-      <button className="btn btn-primary me-5" type="button">Iniciar sesión</button>
-      <CartWidget/>
-    </div>
-  );
+function NavBarNav(){
+    return(
+      <ul className="navbar-nav mx-auto">
+          <li className="nav-item mx-auto">
+              <Link className="nav-link active" to="/">Inicio</Link>
+          </li>
+          <NavBarNavCategories />
+      </ul>
+    );
 }
 
 

@@ -20,7 +20,7 @@ const database = getFirestore(app);
 
 // Antes era un database.collection().get() y al .then() de eso lo mapeábamos
 export const generarTraerDocumentos = (coleccion) => { // La fábrica de funciones te pide sólo la colección de la que traerás los documentos
-  return async function() {  // y te retorna una función personalizada para traer los documentos de esa colección
+  return async function() {  // Y te retorna una función personalizada para traer los documentos de esa colección
     try {
       //Generamos la referencia -→ sacamos una snapshot con ella -→ Con tal snapshot pedimos los documentos -→ Mapeamos el array para que nos den la data y el ID de cada documento
       const coleccionRef = collection(database, coleccion)
@@ -65,7 +65,7 @@ export const generarTraerDocumentosConFiltroCompuesto = (coleccion, filtros) => 
     const generarFiltrosCompletosConWhere = function(arrayDeValores){
       const filtrosIncompletos = [...filtros];
 
-      const filtrosCompletosConWhere = filtrosIncompletos.map(([campo, operador], indiceValores) => where(campo, operador, arrayDeValores[indiceValores]));  // Es más fácil ponerle un limit acá también
+      const filtrosCompletosConWhere = filtrosIncompletos.map(([campo, operador], indiceValores) => where(campo, operador, arrayDeValores[indiceValores]));  // Así es más fácil ponerle un limit acá también
 
       return filtrosCompletosConWhere;
     }
@@ -92,7 +92,7 @@ export const generarTraerUnDocumento = (coleccion) => {
   return async function(id) {
     try {
       const documentoRef = doc(database, coleccion, id);  // Referencia del documento
-      const documento = await getDoc(documentoRef); // En realidad es la captura del documento (no el documento en sí), pero como es un solo documento, no es necesario mapearlo y me facilita ponerle ese nombre
+      const documento = await getDoc(documentoRef); // En realidad es la captura del documento (no el documento en sí), pero como es un solo documento, no creí necesario mapearlo y me facilita ponerle ese nombre
       return { ...documento.data(), id: documento.id }
     } catch (error) {
       console.log("Nos hemos encontrado con el siguiente error:", error);

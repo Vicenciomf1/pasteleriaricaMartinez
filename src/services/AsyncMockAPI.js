@@ -63,7 +63,7 @@ export const traerPorCategoria = (categoria) => {
     });
 };
 
-export const traerUnProducto = (idRequerido) => { // Este es el GetItem() que solicitaron en la tarea, pero no quería dejarlo todo en spanglish jaja
+export const traerUnProducto = (idRequerido) => {
     return new Promise((cumplir, rechazar) => {
         setTimeout(() => {
             let unProducto = products.find((elemento) => elemento.id === idRequerido); //Evalúa si algún elemento del array de productos cumple con que su id sea el requerido.

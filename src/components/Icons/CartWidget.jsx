@@ -4,8 +4,8 @@ import {useCartContext} from "../../context/CartContext";
 import {Link} from "react-router-dom";
 
 const CartWidget = () => {
-    const { getTotalItemsInCart } = useCartContext();  // Si cambia el carro, cambia el estado del CartContext y de este consumidor, entonces cambiará el getTotalItemsInCart
-    const cantidad = getTotalItemsInCart();  // Preferí hacer el render condicional en base solo al badge, no al icono entero por temas de experiencia de usuario (UX).
+    const { getTotalItemsInCart } = useCartContext();
+    const cantidad = getTotalItemsInCart();
 
     return (
         <div>

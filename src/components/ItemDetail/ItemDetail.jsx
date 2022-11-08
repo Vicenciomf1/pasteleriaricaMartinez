@@ -1,14 +1,9 @@
-import React from 'react'
-import ItemCount from "../ItemCount/ItemCount";
+import React from 'react';
 import {Link} from "react-router-dom";
 import {useCartContext} from "../../context/CartContext";
-//Antes del custom Hook era un:
-//import React, { useContext } from 'react'
-//import {cartContext, useCartContext} from "../../context/CartContext";
-//Y dentro de la función Card un const {addItem} = useContext(cartContext);
-//Es decir, reducimos la cantidad de importaciones.
+import ItemCount from "../ItemCount/ItemCount";
 
-function Card({productoUnico}) {
+function ItemDetail({productoUnico, saludo}) {
     //Datos externos como props o contexto
     let {id,title, img, detail, price, stock, category} = productoUnico;
     const {addItem} = useCartContext();
@@ -27,6 +22,7 @@ function Card({productoUnico}) {
     //El nodo JSX a renderizar
     return (
         <div className="col-12">
+            <h1 className="text-center fs-1 my-5">{saludo}</h1>
             <div className="card mx-auto" style={{width: "40rem"}}>
                 <img src={img} className="card-img-top" alt={`Una foto de un/a ${title}`}/>
                 <div className="card-body">
@@ -49,4 +45,4 @@ function Card({productoUnico}) {
     )
 }
 
-export default Card
+export default ItemDetail

@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import React from "react";
 
-function CardImage({id, title, img}) {
+function ItemImage({id, title, img}) {
   return(
     <Link to={`/item/${id}`}>
       <img
@@ -14,4 +14,4 @@ function CardImage({id, title, img}) {
   );
 }
 
-export default CardImage;
+export default ItemImage;
