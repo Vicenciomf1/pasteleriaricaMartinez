@@ -1,9 +1,8 @@
 import CartWidget from "../Icons/CartWidget";
 import "./NavBar.css";
-import Logo from "./Logo";
-import CollapseIcon from "./CollapseIcon";
+import Logo from "./NavBarIcons/Logo";
+import CollapseIcon from "./NavBarIcons/CollapseIcon";
 import NavBarNav from "./NavBarNav/NavBarNav";
-
 
 
 export default function NavBar() {
@@ -22,7 +21,7 @@ export default function NavBar() {
     );
 }
 
-function NavBarRightItems(){  // Puedo hacer un NavBarNav con composición e ir variando con props, además de pasar los demás como children
+function NavBarRightItems(){
   return(
     <div className="d-flex justify-content-sm-center justify-content-lg-around align-items-center">
       <button className="btn btn-primary me-5" type="button">Iniciar sesión</button>

@@ -7,7 +7,7 @@ import {useCartContext} from "../../context/CartContext";
 
 function ItemCount({initial, stock, onAdd, buttonText, idComprado, onDisabledCounter}) {
     //Props desde contexto
-    const {getItemQty} = useCartContext(); // Todas las que son propias del componente al montarse, que no cambiarán de manera interna, serán por props y variables derivadas de estas
+    const {getItemQty} = useCartContext();
 
     //Estados
     const stockDisponible = stock - getItemQty(idComprado);
@@ -25,7 +25,7 @@ function ItemCount({initial, stock, onAdd, buttonText, idComprado, onDisabledCou
         (contador > 1) && setContador(contador - 1); // Si quitas una cantidad mayor a cero, entonces puedes restar uno menos
     };
 
-    const onBuy = () => {  // Logré no ponerlo en un efecto
+    const onBuy = () => {
         if (disabled) return; // Si no hay stock, no se puede comprar
 
         onAdd(contador); // Si hay stock, entonces se puede comprar
