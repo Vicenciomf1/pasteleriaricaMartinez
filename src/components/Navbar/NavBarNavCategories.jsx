@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {traerProductos} from "../../../services/Firestore";
+import {traerProductos} from "../../services/Firestore";
 import {Link} from "react-router-dom";
 
 
