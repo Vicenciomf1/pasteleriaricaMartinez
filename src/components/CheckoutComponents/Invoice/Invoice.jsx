@@ -27,7 +27,7 @@ function Invoice() {
       {order.items?.map((item) => (
         <p className="text-center" key={item.id}>{item.title} en una cantidad de {item.quantity}</p>
       ))}
-      <p className="text-center">P. D: Lamento no haberlo estilizado de manera propia :((</p>
+      <p className="text-center">P.D: Intenta guardar el link de compra para el futuro :)</p>
     </div>
   );
 }
